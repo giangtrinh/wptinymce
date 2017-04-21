@@ -419,3 +419,30 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_1',
+	'title' => 'My Group',
+	'fields' => array (),
+	'location' => array (
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+));
+
+acf_add_local_field(array(
+	'key' => 'field_1',
+	'label' => 'Sub Title',
+	'name' => 'sub_title',
+	'type' => 'text',
+	'parent' => 'group_1'
+));
+
+endif;

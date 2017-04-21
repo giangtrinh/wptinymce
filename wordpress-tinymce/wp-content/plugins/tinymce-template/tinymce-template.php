@@ -71,7 +71,11 @@ if ( !class_exists( 'WPTinyMCETemplate_Plugin' ) ) {
 		}		
 		function tiny_mce_before_init($mce_settings)
 		{   
-			$settings['height'] = 1500;
+			$mce_settings['height'] = 500;
+			$mce_settings['plugins']= "template";
+			//$mce_settings['menubar']= "insert";
+			//$mce_settings['toolbar']= "template";
+			//$mce_settings['templates']= [{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}];
 			return $mce_settings;
 		}
 		function mce_external_plugins($plugins)
